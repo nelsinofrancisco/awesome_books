@@ -1,18 +1,8 @@
-let BOOKS_DATA = [];
+import { Book } from './modules/book.js';
 
-function setStorage() {
-  localStorage.setItem('books_data', JSON.stringify(BOOKS_DATA));
-}
+const book = new Book();
+book.print()
 
-function retrieveStorage() {
-  BOOKS_DATA = JSON.parse(localStorage.getItem('books_data'));
-}
-
-if (!localStorage.getItem('books_data')) {
-  setStorage();
-} else {
-  retrieveStorage();
-}
 
 let form = document.querySelector('form');
 let bookList = document.getElementById('book-list');
@@ -22,40 +12,6 @@ function updateSelections() {
   bookList = document.getElementById('book-list');
 }
 
-function addBook() {
-  const bookTitle = document.getElementById('book-title');
-  const bookAuthor = document.getElementById('book-author');
-
-  const bookObj = {};
-
-  let exists = false;
-
-  for (let i = 0; i < BOOKS_DATA.length; i += 1) {
-    if (BOOKS_DATA[i].title === bookTitle.value && BOOKS_DATA[i].author === bookAuthor.value) {
-      exists = true;
-    }
-  }
-
-  if (!exists) {
-    bookObj.title = bookTitle.value;
-    bookObj.author = bookAuthor.value;
-    return bookObj;
-  }
-
-  return null;
-}
-
-function removeBook(element) {
-  const textElements = element.parentElement.querySelectorAll('.book-card-text');
-
-  BOOKS_DATA = BOOKS_DATA.filter((obj) => {
-    if (textElements[0].innerText === obj.title && textElements[1].innerText === obj.author) {
-      return false;
-    }
-
-    return true;
-  });
-}
 
 function generateBookCard(bookObj) {
   const bookCard = document.createElement('li');
@@ -89,26 +45,25 @@ function displayBooksSection(bookArray) {
   }
 }
 
-displayBooksSection(BOOKS_DATA);
+displayBooksSection(book.list());
 updateSelections();
 
 document.addEventListener('click', (event) => {
   if (event.target && event.target.className === 'remove-book mb-05') {
-    removeBook(event.target);
-    setStorage();
+    book.remove(event.target);
+    
     clearBooksSection();
-    displayBooksSection(BOOKS_DATA);
+    displayBooksSection(book.list());
     updateSelections();
   }
 });
 
 form.addEventListener('submit', (event) => {
-  if (addBook()) {
-    BOOKS_DATA.push(addBook());
-  }
-  setStorage();
+
+  book.add();
+
   clearBooksSection();
-  displayBooksSection(BOOKS_DATA);
+  displayBooksSection(book.list());
   updateSelections();
   event.preventDefault();
 });
