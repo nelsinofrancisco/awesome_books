@@ -28,10 +28,21 @@ function addBook() {
 
   const bookObj = {};
 
-  bookObj.title = bookTitle.value;
-  bookObj.author = bookAuthor.value;
+  let exists = false;
 
-  return bookObj;
+  for (let i = 0; i < BOOKS_DATA.length; i += 1) {
+    if (BOOKS_DATA[i].title === bookTitle.value && BOOKS_DATA[i].author === bookAuthor.value) {
+      exists = true;
+    }
+  }
+
+  if (!exists) {
+    bookObj.title = bookTitle.value;
+    bookObj.author = bookAuthor.value;
+    return bookObj;
+  }
+
+  return null;
 }
 
 function removeBook(element) {
@@ -92,7 +103,9 @@ document.addEventListener('click', (event) => {
 });
 
 form.addEventListener('submit', (event) => {
-  BOOKS_DATA.push(addBook());
+  if (addBook()) {
+    BOOKS_DATA.push(addBook());
+  }
   setStorage();
   clearBooksSection();
   displayBooksSection(BOOKS_DATA);
