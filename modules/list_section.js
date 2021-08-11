@@ -13,20 +13,25 @@ export default class ListSection {
     this.bookCard = document.createElement('li');
     this.bookTitle = document.createElement('p');
     this.bookAuthor = document.createElement('p');
+    this.sperator = document.createElement('span');
     this.removeBtn = document.createElement('button');
 
-    this.bookCard.classList.add('book-card', 'mb-1');
-    this.bookTitle.classList.add('book-card-text');
-    this.bookAuthor.classList.add('book-card-text');
-    this.removeBtn.classList.add('remove-book', 'mb-05');
+    this.bookCard.classList.add('book-card', 'd-flex', 'align-items-center');
+    this.bookTitle.classList.add('book-card-text', 'mb-0');
+    this.bookAuthor.classList.add('book-card-text', 'mb-0');
+    this.sperator.classList.add('mx-1');
+    this.removeBtn.classList.add('remove-book', 'mb-05', 'ms-auto');
 
     this.bookTitle.textContent = bookObj.title;
     this.bookAuthor.textContent = bookObj.author;
+    this.sperator.textContent = 'by';
     this.removeBtn.textContent = 'Remove';
-
+    
     this.bookCard.appendChild(this.bookTitle);
+    this.bookCard.appendChild(this.sperator);
     this.bookCard.appendChild(this.bookAuthor);
     this.bookCard.appendChild(this.removeBtn);
+
     return this.bookCard;
   }
 
