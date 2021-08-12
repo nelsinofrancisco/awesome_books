@@ -42,16 +42,20 @@ export default class ListSection {
     this.bookList.innerHTML = '';
   }
 
-  displayBooksSection(bookArray) {
+  displayBooksSection(bookArray, dateTime) {
     for (let i = 0; i < bookArray.length; i += 1) {
       const bookCard = this.generateBookCard(bookArray[i]);
       this.bookList.appendChild(bookCard);
     }
+
+    const date = document.getElementById('date');
+    console.log(dateTime);
+    date.innerText = `${dateTime}`;
   }
 
-  generate(bookArray) {
+  generate(bookArray, dateTime) {
     this.clearBooksSection();
-    this.displayBooksSection(bookArray);
+    this.displayBooksSection(bookArray, dateTime);
     this.updateSelections();
   }
 }
