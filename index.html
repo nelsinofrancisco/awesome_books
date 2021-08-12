@@ -11,22 +11,22 @@
   </head>
   <body class="py-2 px-3">
     <nav class="d-flex justify-content-between">
-      <h2 class="fs-3">Awesome Books</h2>
+      <h2 class="fs-3"><a id="nav-home" href="#">Awesome Books</a></h2>
       <ul class="d-flex list-unstyled m-0 align-items-center">
-        <li><a id="nav-list" class="text-decoration-none" href="#">List</a></li>
-        <li><a id="nav-add" class="text-decoration-none" href="#">Add new</a></li>
-        <li><a id="nav-contact" class="text-decoration-none" href="#">Contact</a></li>
+        <li><a id="nav-list" class="text-decoration-none text-dark" href="#">List</a></li>
+        <li><a id="nav-add" class="text-decoration-none text-dark" href="#">Add new</a></li>
+        <li><a id="nav-contact" class="text-decoration-none text-dark" href="#">Contact</a></li>
       </ul>
     </nav>
     <main class="d-flex justify-content-center">
       <div class="d-flex flex-column align-items-center w-100">
-        <section class="d-flex flex-column align-items-center mb-3 w-100">
+        <section id="section-list" class="d-flex flex-column align-items-center mb-3 w-100">
           <h1 class="mb-2 fs-3">All awesome Books</h1>
           <ul id="book-list" class="list-unstyled border border-2 border-dark w-100">
           </ul>
           <span class="line"></span>
         </section>
-        <section class="d-flex flex-column align-items-center w-75">
+        <section id="section-add" class="d-flex flex-column align-items-center w-75 d-none">
           <h2 class="mb-2 fs-3 text-center">Add a new book</h2>
           <form class="d-flex flex-column w-100">
             <input
@@ -45,6 +45,9 @@
             />
             <button id="add-book" class="add-book bg-white border border-2 border-dark px-1" type="submit">Add</button>
           </form>
+        </section>
+        <section id="section-contact" class="d-none">
+          <h2>Contact Us</h2>
         </section>
       </div>
     </main>
