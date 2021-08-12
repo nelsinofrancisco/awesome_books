@@ -22,6 +22,10 @@
   color: black;
 }
 
+.text-container {
+  width: 60%;
+}
+
 /* Add Section */
 
 .add-book {

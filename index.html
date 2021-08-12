@@ -9,10 +9,18 @@
     <link rel="stylesheet" href="./main.css"/>
     <title>Awesome Books</title>
   </head>
-  <body>
+  <body class="py-2 px-3">
+    <nav class="d-flex justify-content-between">
+      <h2 class="fs-3">Awesome Books</h2>
+      <ul class="d-flex list-unstyled m-0 align-items-center">
+        <li><a id="nav-list" class="text-decoration-none" href="#">List</a></li>
+        <li><a id="nav-add" class="text-decoration-none" href="#">Add new</a></li>
+        <li><a id="nav-contact" class="text-decoration-none" href="#">Contact</a></li>
+      </ul>
+    </nav>
     <main class="d-flex justify-content-center">
-      <div class="d-flex flex-column align-items-center">
-        <section class="d-flex flex-column align-items-center mb-3">
+      <div class="d-flex flex-column align-items-center w-100">
+        <section class="d-flex flex-column align-items-center mb-3 w-100">
           <h1 class="mb-2 fs-3">All awesome Books</h1>
           <ul id="book-list" class="list-unstyled border border-2 border-dark w-100">
           </ul>
@@ -20,7 +28,7 @@
         </section>
         <section class="d-flex flex-column align-items-center w-75">
           <h2 class="mb-2 fs-3 text-center">Add a new book</h2>
-          <form class="d-flex flex-column">
+          <form class="d-flex flex-column w-100">
             <input
               class="input mb-1 border border-2 border-dark px-1"
               type="text"

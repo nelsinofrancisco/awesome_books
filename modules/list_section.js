@@ -11,14 +11,16 @@ export default class ListSection {
 
   generateBookCard(bookObj) {
     this.bookCard = document.createElement('li');
+    this.textContainer = document.createElement('div');
     this.bookTitle = document.createElement('p');
     this.bookAuthor = document.createElement('p');
     this.sperator = document.createElement('span');
     this.removeBtn = document.createElement('button');
 
     this.bookCard.classList.add('book-card', 'd-flex', 'align-items-center', 'p-1');
+    this.textContainer.classList.add('d-flex', 'flex-wrap', 'text-container');
     this.bookTitle.classList.add('book-card-text', 'mb-0');
-    this.bookAuthor.classList.add('book-card-text', 'mb-0', 'me-5');
+    this.bookAuthor.classList.add('book-card-text', 'mb-0');
     this.sperator.classList.add('mx-1');
     this.removeBtn.classList.add('remove-book', 'ms-auto', 'bg-white', 'border', 'border-2', 'border-dark', 'px-1');
     const title = `"${bookObj.title}"`;
@@ -27,9 +29,10 @@ export default class ListSection {
     this.sperator.textContent = 'by';
     this.removeBtn.textContent = 'Remove';
 
-    this.bookCard.appendChild(this.bookTitle);
-    this.bookCard.appendChild(this.sperator);
-    this.bookCard.appendChild(this.bookAuthor);
+    this.textContainer.appendChild(this.bookTitle);
+    this.textContainer.appendChild(this.sperator);
+    this.textContainer.appendChild(this.bookAuthor);
+    this.bookCard.appendChild(this.textContainer);
     this.bookCard.appendChild(this.removeBtn);
 
     return this.bookCard;
