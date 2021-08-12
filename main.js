@@ -8,7 +8,7 @@ const form = document.querySelector('form');
 listSection.generate(book.list());
 
 document.addEventListener('click', (event) => {
-  if (event.target && event.target.className === 'remove-book mb-05') {
+  if (event.target && event.target.className.includes('remove-book')) {
     book.remove(event.target);
     listSection.generate(book.list());
   }
