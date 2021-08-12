@@ -8,7 +8,6 @@ const listSection = new ListSection();
 const form = document.querySelector('form');
 const nav = new Nav();
 const dateTime = DateTime.now().toLocaleString(DateTime.DATETIME_MED);
-console.log(dateTime);
 
 listSection.generate(book.list(), dateTime);
 

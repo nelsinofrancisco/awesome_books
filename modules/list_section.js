@@ -49,7 +49,6 @@ export default class ListSection {
     }
 
     const date = document.getElementById('date');
-    console.log(dateTime);
     date.innerText = `${dateTime}`;
   }
 
