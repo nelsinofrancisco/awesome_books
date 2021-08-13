@@ -4,6 +4,30 @@
   box-sizing: border-box;
 }
 
+body {
+  height: 100vh;
+}
+
+.book-list,
+form,
+.contact-info {
+  margin-top: 2rem;
+}
+
+h1,
+h2 {
+  font-size: 1.2rem;
+}
+
+/* Nav Section */
+.links {
+  border-right: 1px solid darkblue;
+}
+
+.date {
+  font-size: 14px;
+}
+
 /* List Section */
 .book-card {
   font-weight: 600;
@@ -22,6 +46,10 @@
   color: black;
 }
 
+.text-container {
+  width: 60%;
+}
+
 /* Add Section */
 
 .add-book {
@@ -31,4 +59,17 @@
 .remove-book,
 .add-book {
   box-shadow: 2px 2px black;
+}
+
+@media only screen and (min-width: 992px) {
+  main {
+    width: 100%;
+    max-width: 992px;
+    margin: 0 auto;
+  }
+
+  h1,
+  h2 {
+    font-size: 1.5rem;
+  }
 }
